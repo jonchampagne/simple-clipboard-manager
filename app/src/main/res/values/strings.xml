@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Clipboard Manager</string>
+    <string name="clipboard_history">Clipboard History</string>
+</resources>

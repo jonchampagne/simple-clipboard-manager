@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="notification_channel_ongoing_id">OnGoing_notifications</string>
+    <string name="notification_channel_ongoing_title">Ongoing notification</string>
+    <string name="notification_channel_ongoing_description">Ongoing notifications</string><!-- TODO: Be more descriptive -->
+</resources>
