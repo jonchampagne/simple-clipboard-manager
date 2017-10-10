@@ -61,7 +61,6 @@ class ClipboardService : Service() {
                 .setContentTitle(getString(R.string.clipboard_history))
                 .setContentText("Tap below to copy")
                 .setOngoing(true)
-        var i = 0
         history.forEach({
             if (it != null) {
                 val intent = Intent(this, ClipboardCopyReceiver::class.java)
