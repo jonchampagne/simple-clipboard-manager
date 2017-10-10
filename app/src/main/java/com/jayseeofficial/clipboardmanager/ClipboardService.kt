@@ -34,7 +34,7 @@ class ClipboardService : Service() {
         // Show the notification
         startForeground(CLIPBOARD_NOTIFICATION_ID, createNotification())
 
-        return CLIPBOARD_NOTIFICATION_ID
+        return START_NOT_STICKY
     }
 
     fun setup() {
