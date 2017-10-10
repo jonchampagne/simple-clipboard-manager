@@ -3,9 +3,6 @@ package com.jayseeofficial.clipboardmanager.broadcastreceiver
 import android.content.*
 import android.util.Log
 
-/**
- * Created by jon2 on 2017-10-02.
- */
 class ClipboardCopyReceiver : BroadcastReceiver() {
     val TAG = ClipboardCopyReceiver::class.java.canonicalName
 

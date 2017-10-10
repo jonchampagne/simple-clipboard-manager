@@ -7,10 +7,6 @@ import android.content.Intent
 import android.os.Build
 import com.jayseeofficial.clipboardmanager.service.ClipboardService
 
-
-/**
- * Created by jon2 on 2017-10-02.
- */
 class Application : android.app.Application() {
     override fun onCreate() {
         super.onCreate()
