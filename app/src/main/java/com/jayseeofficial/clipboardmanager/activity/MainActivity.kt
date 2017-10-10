@@ -1,10 +1,8 @@
-package com.jayseeofficial.clipboardmanager
+package com.jayseeofficial.clipboardmanager.activity
 
-import android.content.ClipboardManager
-import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import com.jayseeofficial.clipboardmanager.R
 
 class MainActivity : AppCompatActivity() {
 

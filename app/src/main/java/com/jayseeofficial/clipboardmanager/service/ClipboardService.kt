@@ -1,4 +1,4 @@
-package com.jayseeofficial.clipboardmanager
+package com.jayseeofficial.clipboardmanager.service
 
 import android.app.Notification
 import android.app.NotificationManager
@@ -10,10 +10,9 @@ import android.content.Context
 import android.content.Intent
 import android.os.IBinder
 import android.support.v4.app.NotificationCompat
-import android.support.v4.util.ArrayMap
 import android.util.Log
-import android.widget.Toast
-import java.util.*
+import com.jayseeofficial.clipboardmanager.R
+import com.jayseeofficial.clipboardmanager.broadcastreceiver.ClipboardCopyReceiver
 import kotlin.collections.ArrayList
 
 class ClipboardService : Service() {

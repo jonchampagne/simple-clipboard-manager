@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,11 +19,11 @@
         </activity>
 
         <service
-            android:name=".ClipboardService"
+            android:name=".service.ClipboardService"
             android:enabled="true"
             android:exported="true"></service>
 
-        <receiver android:name=".ClipboardCopyReceiver" android:exported="false">
+        <receiver android:name=".broadcastreceiver.ClipboardCopyReceiver" android:exported="false">
             <intent-filter>
                 <action android:name="com.jayseeofficial.clipboardmanager.broadcast.COPY_TO_CLIPBOARD" />
             </intent-filter>

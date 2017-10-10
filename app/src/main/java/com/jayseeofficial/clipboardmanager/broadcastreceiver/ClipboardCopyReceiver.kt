@@ -1,8 +1,7 @@
-package com.jayseeofficial.clipboardmanager
+package com.jayseeofficial.clipboardmanager.broadcastreceiver
 
 import android.content.*
 import android.util.Log
-import android.widget.Toast
 
 /**
  * Created by jon2 on 2017-10-02.
