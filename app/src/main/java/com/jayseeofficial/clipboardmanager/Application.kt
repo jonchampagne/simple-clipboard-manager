@@ -26,7 +26,11 @@ class Application : android.app.Application() {
             mChannel.enableLights(false)
             mNotificationManager.createNotificationChannel(mChannel)
         }
+    }
 
-        startService(Intent(this, ClipboardService::class.java))
+    companion object {
+        fun startClipboardService(context: Context) {
+            context.startService(Intent(context, ClipboardService::class.java))
+        }
     }
 }

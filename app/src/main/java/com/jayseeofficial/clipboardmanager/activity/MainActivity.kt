@@ -2,7 +2,10 @@ package com.jayseeofficial.clipboardmanager.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.jayseeofficial.clipboardmanager.Application
 import com.jayseeofficial.clipboardmanager.R
+
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -10,6 +13,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
+        btnStartService.setOnClickListener { Application.startClipboardService(this) }
     }
 }
