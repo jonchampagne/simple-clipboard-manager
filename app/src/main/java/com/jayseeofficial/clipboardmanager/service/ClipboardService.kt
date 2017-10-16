@@ -20,6 +20,8 @@ class ClipboardService : Service() {
 
     val CLIPBOARD_NOTIFICATION_ID = 3191
 
+    private val NOTIFICATION_HISTORY_LENGTH = 3
+
     lateinit var history: ArrayList<ClipData?>
 
     override fun onBind(intent: Intent): IBinder? {
@@ -33,28 +35,18 @@ class ClipboardService : Service() {
         // Show the notification
         startForeground(CLIPBOARD_NOTIFICATION_ID, createNotification())
 
-        return START_NOT_STICKY
+        return START_STICKY
     }
 
     fun setup() {
-        val historyLength = 3 // Seemingly max allowed by the system
-
-        history = ArrayList(historyLength)
+        history = ArrayList(NOTIFICATION_HISTORY_LENGTH)
 
         // Set up listening to the clipboard
         val cb = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-
-        val mNotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        cb.addPrimaryClipChangedListener {
-            history.add(cb.primaryClip)
-            if (history.size > historyLength) {
-                Log.d(TAG, "Removed clip data: " + history.removeAt(0))
-            }
-            mNotificationManager.notify(CLIPBOARD_NOTIFICATION_ID, createNotification())
-        }
+        cb.addPrimaryClipChangedListener { onPrimaryClipChanged() }
     }
 
-    fun createNotification(): Notification {
+    private fun createNotification(): Notification {
         val notification = NotificationCompat.Builder(this, getString(R.string.notification_channel_ongoing_id))
                 .setSmallIcon(R.drawable.ic_ongoing)
                 .setContentTitle(getString(R.string.clipboard_history))
@@ -69,5 +61,21 @@ class ClipboardService : Service() {
             }
         })
         return notification.build()
+    }
+
+    private fun onPrimaryClipChanged() {
+        updateNotification()
+    }
+
+    private fun updateNotification(){
+        val cb = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+
+        history.add(cb.primaryClip)
+        if (history.size > NOTIFICATION_HISTORY_LENGTH) {
+            Log.d(TAG, "Removed clip data: " + history.removeAt(0))
+        }
+
+        val mNotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        mNotificationManager.notify(CLIPBOARD_NOTIFICATION_ID, createNotification())
     }
 }
