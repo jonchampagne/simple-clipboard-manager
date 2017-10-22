@@ -23,13 +23,14 @@
         android:layout_margin="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
+        android:maxLines="2"
         android:textColor="@android:color/black"
         app:autoSizeMaxTextSize="48sp"
-        app:autoSizeMinTextSize="8sp"
+        app:autoSizeMinTextSize="12sp"
         app:autoSizeTextType="uniform"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/view"
-        tools:text="This is some very long text to see how long text is handled by the system and all that" />
+        tools:text="As a My Nintendo™ member, your opinions are very important to us. Please take a few minutes to tell us about how things are going with your new game. Complete a brief survey to earn 30 Platinum Points, which can be redeemed for great rewards. Your Platinum Points will be added shortly after completion of the survey. NOTE: If you purchased this software for pre-load, please reply to this survey after playing the game." />
 
     <TextView
         android:id="@+id/txtTimeSince"
