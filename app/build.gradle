@@ -34,6 +34,10 @@ dependencies {
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 
     def arch_version = "1.0.0-rc1"
+
+    // LiveData and ViewModel
+    implementation "android.arch.lifecycle:extensions:$arch_version"
+
     // Room
     implementation "android.arch.persistence.room:runtime:$arch_version"
     annotationProcessor "android.arch.persistence.room:compiler:$arch_version"
