@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning"
         android:allowBackup="false">
-        <activity android:name=".activity.MainActivity">
+        <activity android:name="com.jayseeofficial.clipboardmanager.ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

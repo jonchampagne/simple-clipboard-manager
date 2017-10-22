@@ -11,11 +11,10 @@ import android.content.Intent
 import android.os.IBinder
 import android.support.v4.app.NotificationCompat
 import android.util.Log
-import com.google.gson.Gson
 import com.jayseeofficial.clipboardmanager.R
 import com.jayseeofficial.clipboardmanager.broadcastreceiver.ClipboardCopyReceiver
-import com.jayseeofficial.clipboardmanager.room.ClipboardData
-import com.jayseeofficial.clipboardmanager.room.ClipboardDatabase
+import com.jayseeofficial.clipboardmanager.data.ClipboardData
+import com.jayseeofficial.clipboardmanager.data.ClipboardHistoryDatabase
 import kotlin.collections.ArrayList
 import kotlin.concurrent.thread
 
@@ -31,6 +30,16 @@ class ClipboardService : Service() {
     override fun onBind(intent: Intent): IBinder? {
         // TODO: Return the communication channel to the service.
         throw UnsupportedOperationException("Not yet implemented")
+    }
+
+    override fun onCreate() {
+        super.onCreate()
+        running = true
+    }
+
+    override fun onDestroy() {
+        running = false
+        super.onDestroy()
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -76,8 +85,8 @@ class ClipboardService : Service() {
         thread {
             val cb = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
 
-            val db = ClipboardDatabase.get(this)
-            db.clipboardDao().insertClipboardData(ClipboardData(cb.primaryClip))
+            val db = ClipboardHistoryDatabase.get(this)
+            db.clipboardHistoryDao().insertClipboardData(ClipboardData(cb.primaryClip))
         }
     }
 
@@ -91,5 +100,13 @@ class ClipboardService : Service() {
 
         val mNotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         mNotificationManager.notify(CLIPBOARD_NOTIFICATION_ID, createNotification())
+    }
+
+    companion object {
+        private var running: Boolean = false
+
+        fun isRunning(): Boolean {
+            return running
+        }
     }
 }

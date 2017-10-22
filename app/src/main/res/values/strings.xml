@@ -3,4 +3,7 @@
     <string name="clipboard_history">Clipboard History</string>
     <string name="start_clipboard_history_service">Start</string>
     <string name="stop_clipboard_history_service">Stop</string>
+    <string name="log_clipboard_history">Log clipboard history</string>
+    <string name="start_on_boot">Start on boot</string>
+    <string name="tap_text_below_to_copy_to_clipboard">Tap text below to copy to clipboard</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.jayseeofficial.clipboardmanager.room
+package com.jayseeofficial.clipboardmanager.data
 
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey

@@ -4,45 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.jayseeofficial.clipboardmanager.activity.MainActivity">
+    tools:context=".ui.activity.MainActivity">
 
-    <Button
-        android:id="@+id/btnStartService"
+    <ToggleButton
+        android:id="@+id/tbServiceOnOff"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
-        android:text="@string/start_clipboard_history_service"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.028"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnStopService"
+    <CheckBox
+        android:id="@+id/cbStartOnBoot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:text="@string/stop_clipboard_history_service"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.028"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnStartService" />
-
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="textMultiLine"
+        android:text="@string/start_on_boot"
+        app:layout_constraintStart_toEndOf="@+id/tbServiceOnOff"
+        app:layout_constraintTop_toTopOf="@+id/tbServiceOnOff" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/tap_text_below_to_copy_to_clipboard"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toEndOf="@+id/tbServiceOnOff"
+        app:layout_constraintTop_toBottomOf="@+id/cbStartOnBoot" />
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvHistory"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnStartService" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:listitem="@layout/item_clipboard_data" />
 
 </android.support.constraint.ConstraintLayout>
