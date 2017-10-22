@@ -3,15 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.jayseeofficial.clipboardmanager">
 
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <application
         android:name=".Application"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning"
-        android:allowBackup="false">
+        tools:replace="android:allowBackup">
         <activity android:name="com.jayseeofficial.clipboardmanager.ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,10 +29,17 @@
             android:exported="false" />
 
         <receiver
-            android:name=".broadcastreceiver.ClipboardCopyReceiver"
+            android:name=".receiver.ClipboardCopyReceiver"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.jayseeofficial.clipboardmanager.broadcast.COPY_TO_CLIPBOARD" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".receiver.BootReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
     </application>

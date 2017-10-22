@@ -1,4 +1,4 @@
-package com.jayseeofficial.clipboardmanager.broadcastreceiver
+package com.jayseeofficial.clipboardmanager.receiver
 
 import android.content.*
 import android.util.Log

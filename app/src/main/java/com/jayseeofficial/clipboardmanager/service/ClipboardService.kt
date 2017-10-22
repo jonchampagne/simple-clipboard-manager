@@ -12,7 +12,7 @@ import android.os.IBinder
 import android.support.v4.app.NotificationCompat
 import android.util.Log
 import com.jayseeofficial.clipboardmanager.R
-import com.jayseeofficial.clipboardmanager.broadcastreceiver.ClipboardCopyReceiver
+import com.jayseeofficial.clipboardmanager.receiver.ClipboardCopyReceiver
 import com.jayseeofficial.clipboardmanager.data.ClipboardData
 import com.jayseeofficial.clipboardmanager.data.ClipboardHistoryDatabase
 import kotlin.collections.ArrayList

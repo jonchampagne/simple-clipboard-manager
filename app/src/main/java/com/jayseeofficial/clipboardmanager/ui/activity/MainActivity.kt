@@ -1,10 +1,13 @@
 package com.jayseeofficial.clipboardmanager.ui.activity
 
+import android.Manifest
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.DialogInterface
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.support.v7.widget.LinearLayoutManager
 import android.widget.Toast
 import com.jayseeofficial.clipboardmanager.Application
@@ -22,17 +25,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        tbServiceOnOff.isChecked = ClipboardService.isRunning()
-        tbServiceOnOff.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                Application.startClipboardService(this)
-                tbServiceOnOff.isChecked = true
-            } else {
-                Application.stopClipboardService(this)
-                tbServiceOnOff.isChecked = false
-            }
-        }
-
         // Pop to the background thread to get the database reference and LiveData from that, then
         // back to the main thread to bind the RecyclerView to the LiveData adapter
         thread {
@@ -49,6 +41,26 @@ class MainActivity : AppCompatActivity() {
                 rvHistory.adapter = cbha
                 rvHistory.layoutManager = LinearLayoutManager(this)
             }
+        }
+
+        // Check the status of the service and display the togglebutton appropriately
+        tbServiceOnOff.isChecked = ClipboardService.isRunning()
+        tbServiceOnOff.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                Application.startClipboardService(this)
+                tbServiceOnOff.isChecked = true
+            } else {
+                Application.stopClipboardService(this)
+                tbServiceOnOff.isChecked = false
+            }
+        }
+
+        val prefs = getSharedPreferences(getString(R.string.sp_file_name), Context.MODE_PRIVATE)
+        cbStartOnBoot.isChecked = prefs.getBoolean(getString(R.string.sp_start_on_boot), false)
+        cbStartOnBoot.setOnCheckedChangeListener { _, isChecked ->
+            val editor = prefs.edit()
+            editor.putBoolean(getString(R.string.sp_start_on_boot), isChecked)
+            editor.apply()
         }
     }
 }

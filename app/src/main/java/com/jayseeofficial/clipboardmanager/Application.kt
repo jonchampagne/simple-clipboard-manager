@@ -30,7 +30,11 @@ class Application : android.app.Application() {
 
     companion object {
         fun startClipboardService(context: Context) {
-            context.startService(Intent(context, ClipboardService::class.java))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                context.startForegroundService(Intent(context, ClipboardService::class.java))
+            } else {
+                context.startService(Intent(context, ClipboardService::class.java))
+            }
         }
 
         fun stopClipboardService(context: Context) {
