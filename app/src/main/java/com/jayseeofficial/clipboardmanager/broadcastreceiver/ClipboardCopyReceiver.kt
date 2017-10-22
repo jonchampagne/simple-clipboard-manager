@@ -10,7 +10,7 @@ class ClipboardCopyReceiver : BroadcastReceiver() {
         if (context != null && intent != null) {
             val mClipboardManager = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
             // Get the clipdata we were given and if we can, stick it on the clipboard
-            mClipboardManager.primaryClip = intent.getParcelableExtra<ClipData>(KEY_CLIPDATA) ?: return
+            mClipboardManager.primaryClip = intent.getParcelableExtra(KEY_CLIPDATA) ?: return
             Log.d(TAG,"Copied to clipboard!")
         }
     }

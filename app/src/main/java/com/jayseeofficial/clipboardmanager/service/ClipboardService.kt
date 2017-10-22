@@ -11,9 +11,13 @@ import android.content.Intent
 import android.os.IBinder
 import android.support.v4.app.NotificationCompat
 import android.util.Log
+import com.google.gson.Gson
 import com.jayseeofficial.clipboardmanager.R
 import com.jayseeofficial.clipboardmanager.broadcastreceiver.ClipboardCopyReceiver
+import com.jayseeofficial.clipboardmanager.room.ClipboardData
+import com.jayseeofficial.clipboardmanager.room.ClipboardDatabase
 import kotlin.collections.ArrayList
+import kotlin.concurrent.thread
 
 class ClipboardService : Service() {
     val TAG = ClipboardService::javaClass.name
@@ -65,9 +69,19 @@ class ClipboardService : Service() {
 
     private fun onPrimaryClipChanged() {
         updateNotification()
+        logPrimaryClipChanged()
     }
 
-    private fun updateNotification(){
+    private fun logPrimaryClipChanged() {
+        thread {
+            val cb = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+
+            val db = ClipboardDatabase.get(this)
+            db.clipboardDao().insertClipboardData(ClipboardData(cb.primaryClip))
+        }
+    }
+
+    private fun updateNotification() {
         val cb = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
 
         history.add(cb.primaryClip)
