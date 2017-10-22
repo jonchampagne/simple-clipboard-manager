@@ -14,5 +14,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btnStartService.setOnClickListener { Application.startClipboardService(this) }
+        btnStopService.setOnClickListener { Application.stopClipboardService(this) }
     }
 }

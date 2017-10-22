@@ -32,5 +32,9 @@ class Application : android.app.Application() {
         fun startClipboardService(context: Context) {
             context.startService(Intent(context, ClipboardService::class.java))
         }
+
+        fun stopClipboardService(context: Context) {
+            context.stopService(Intent(context, ClipboardService::class.java))
+        }
     }
 }
