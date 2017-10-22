@@ -20,9 +20,9 @@ import kotlin.collections.ArrayList
 import kotlin.concurrent.thread
 
 class ClipboardService : Service() {
-    val TAG = ClipboardService::javaClass.name
+    private val TAG = ClipboardService::javaClass.name
 
-    val CLIPBOARD_NOTIFICATION_ID = 3191
+    private val CLIPBOARD_NOTIFICATION_ID = 3191
 
     private val NOTIFICATION_HISTORY_LENGTH = 3
 

@@ -4,7 +4,7 @@ import android.content.*
 import android.util.Log
 
 class ClipboardCopyReceiver : BroadcastReceiver() {
-    val TAG = ClipboardCopyReceiver::class.java.canonicalName
+    private val TAG = ClipboardCopyReceiver::class.java.canonicalName
 
     override fun onReceive(context: Context?, intent: Intent?) {
         if (context != null && intent != null) {
