@@ -33,10 +33,11 @@ dependencies {
     })
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 
+    def arch_version = "1.0.0-rc1"
     // Room
-    implementation "android.arch.persistence.room:runtime:1.0.0-alpha9-1"
-    annotationProcessor "android.arch.persistence.room:compiler:1.0.0-alpha9-1"
-    kapt "android.arch.persistence.room:compiler:1.0.0-alpha9-1"
+    implementation "android.arch.persistence.room:runtime:$arch_version"
+    annotationProcessor "android.arch.persistence.room:compiler:$arch_version"
+    kapt "android.arch.persistence.room:compiler:$arch_version"
 
     implementation 'com.google.code.gson:gson:2.8.2'
 }
