@@ -34,6 +34,7 @@ dependencies {
     // ConstraintLayout
     implementation "com.android.support.constraint:constraint-layout:1.0.2"
 
+    implementation 'com.android.support:design:27.0.1'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.1', {
         exclude group: 'com.android.support', module: 'support-annotations'
@@ -52,4 +53,7 @@ dependencies {
 
     // Gson
     implementation 'com.google.code.gson:gson:2.8.2'
+
+    // Aknowledger (fork of Licenses Dialog)
+    implementation 'com.github.damianogiusti:Acknowledger:eb730cf565'
 }

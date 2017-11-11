@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import com.jayseeofficial.clipboardmanager.service.ClipboardService
+import com.jayseeofficial.clipboardmanager.ui.activity.LicensesActivity
 
 class Application : android.app.Application() {
     override fun onCreate() {
@@ -39,6 +40,10 @@ class Application : android.app.Application() {
 
         fun stopClipboardService(context: Context) {
             context.stopService(Intent(context, ClipboardService::class.java))
+        }
+
+        fun showOpenSourceLicensesDialog(context: Context) {
+            context.startActivity(Intent(context, LicensesActivity::class.java))
         }
     }
 }

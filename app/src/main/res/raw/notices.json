@@ -1,0 +1,14 @@
+[
+  {
+    "name": "google-gson",
+    "url": "https://github.com/google/gson/",
+    "copyright": "Copyright 2008 Google Inc.",
+    "license": "apache2"
+  },
+  {
+    "name": "Acknowledger",
+    "url": "https://github.com/damianogiusti/Acknowledger",
+    "copyright": "Copyright 2017 Damiano Giusti",
+    "license": "apache2"
+  }
+]

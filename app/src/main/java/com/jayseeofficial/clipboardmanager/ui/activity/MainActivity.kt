@@ -6,6 +6,8 @@ import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import com.jayseeofficial.clipboardmanager.Application
 import com.jayseeofficial.clipboardmanager.R
@@ -58,6 +60,22 @@ class MainActivity : AppCompatActivity() {
             val editor = prefs.edit()
             editor.putBoolean(getString(R.string.sp_start_on_boot), isChecked)
             editor.apply()
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        // Like a switch statement, but infinitely more readable
+        return when (item?.itemId) {
+            R.id.menuitem_open_source_licenses -> {
+                Application.showOpenSourceLicensesDialog(this)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 }
