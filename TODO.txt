@@ -1,4 +1,3 @@
-Implement selectively and totally deleting clipboard history entries.
 Correctly license all files.
 Publish to play store
 Analytics?
