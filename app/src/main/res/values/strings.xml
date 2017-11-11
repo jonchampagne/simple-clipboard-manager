@@ -13,4 +13,5 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="dialog_text_delete_full_history">Delete full history?\nTHIS CANNOT BE UNDONE!</string>
+    <string name="notification_history_text">Expand and tap below to copy</string>
 </resources>

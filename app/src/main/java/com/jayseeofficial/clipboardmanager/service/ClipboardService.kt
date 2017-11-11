@@ -63,7 +63,7 @@ class ClipboardService : Service() {
         val notification = NotificationCompat.Builder(this, getString(R.string.notification_channel_ongoing_id))
                 .setSmallIcon(R.drawable.ic_ongoing)
                 .setContentTitle(getString(R.string.clipboard_history))
-                .setContentText("Tap below to copy")
+                .setContentText(getString(R.string.notification_history_text))
                 .setOngoing(true)
         history.forEach({
             if (it != null) {
