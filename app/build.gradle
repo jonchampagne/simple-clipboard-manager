@@ -27,7 +27,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     // Support library
-    def support_library_version = "27.0.0"
+    def support_library_version = "27.0.1"
     implementation "com.android.support:appcompat-v7:$support_library_version"
     implementation "com.android.support:recyclerview-v7:$support_library_version"
 
