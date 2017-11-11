@@ -5,5 +5,5 @@
     <string name="stop_clipboard_history_service">Stop</string>
     <string name="log_clipboard_history">Log clipboard history</string>
     <string name="start_on_boot">Start on boot</string>
-    <string name="tap_text_below_to_copy_to_clipboard">Tap text below to copy to clipboard</string>
+    <string name="clipboard_history_list_instructions">Tap text below to copy to clipboard. Swipe left or right to delete from history.</string>
 </resources>
