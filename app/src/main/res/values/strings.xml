@@ -9,4 +9,8 @@
     <string name="delete_all">Delete All</string>
     <string name="open_source_licenses">Open source licenses</string>
     <string name="title_activity_licenses">LicensesActivity</string>
+    <string name="delete_full_history">Delete full history</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="dialog_text_delete_full_history">Delete full history?\nTHIS CANNOT BE UNDONE!</string>
 </resources>

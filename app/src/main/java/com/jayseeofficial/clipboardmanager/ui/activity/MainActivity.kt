@@ -3,8 +3,10 @@ package com.jayseeofficial.clipboardmanager.ui.activity
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.DialogInterface
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
@@ -75,7 +77,22 @@ class MainActivity : AppCompatActivity() {
                 Application.showOpenSourceLicensesDialog(this)
                 true
             }
+            R.id.menuitem_delete_full_history -> {
+                AlertDialog.Builder(this)
+                        .setTitle(getString(R.string.dialog_text_delete_full_history))
+                        .setPositiveButton(getString(R.string.yes), { _: DialogInterface, _: Int -> deleteHistory() })
+                        .setNegativeButton(getString(R.string.no), { _: DialogInterface, _: Int -> /* Do nothing */ })
+                        .show()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun deleteHistory() {
+        thread {
+            val chd = ClipboardHistoryDatabase.get(this).clipboardHistoryDao()
+            chd.deleteAll()
         }
     }
 }

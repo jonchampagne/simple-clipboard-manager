@@ -14,7 +14,9 @@ interface ClipboardHistoryDao {
     @Delete
     fun deleteClipboardData(cd: ClipboardData)
 
-    // TODO: LiveData-ify this
+    @Query("DELETE FROM ClipboardData")
+    fun deleteAll()
+
     @Query("SELECT * FROM ClipboardData")
     fun getAll(): LiveData<List<ClipboardData>>
 }
