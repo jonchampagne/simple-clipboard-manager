@@ -54,6 +54,6 @@ dependencies {
     // Gson
     implementation 'com.google.code.gson:gson:2.8.2'
 
-    // Aknowledger (fork of Licenses Dialog)
+    // Acknowledger (fork of Licenses Dialog)
     implementation 'com.github.damianogiusti:Acknowledger:eb730cf565'
 }
