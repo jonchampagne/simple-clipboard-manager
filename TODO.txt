@@ -1,4 +1,4 @@
-Correctly license all files.
+Make swiping to delete a history entry show some sort of trash icon
 Publish to play store
 Analytics?
 Promote!
